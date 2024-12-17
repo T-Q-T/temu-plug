@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "temu 快捷物流单工具",
+    "version": "1.0",
+    "description": "A simple browser extension.",
+    "permissions": ["storage", "activeTab", "scripting"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    },
+    "host_permissions": [
+        "https://seller.kuajingmaihuo.com/*"
+      ],
+      "content_scripts": [
+        {
+          "matches": ["https://seller.kuajingmaihuo.com/*"],
+          "js": ["content.js"],
+          "run_at": "document_idle"
+        }
+      ]
+  }
+  
