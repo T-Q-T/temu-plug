@@ -11,14 +11,23 @@
       "default_popup": "popup.html",
       "default_icon": "icon.png"
     },
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self';"
+    },
     "host_permissions": [
         "https://seller.kuajingmaihuo.com/*"
       ],
       "content_scripts": [
         {
           "matches": ["https://seller.kuajingmaihuo.com/*"],
-          "js": ["content.js"],
+          "js": ["libs/xlsx.bundle.js","libs/pdf.min.js","content.js"],
           "run_at": "document_idle"
+        }
+      ],
+      "web_accessible_resources": [
+        {
+          "resources": ["libs/pdf-lib.min.js","libs/pdf.worker.min.js", "libs/xlsx.bundle.js"],
+          "matches": ["<all_urls>"]
         }
       ]
   }
