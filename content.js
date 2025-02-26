@@ -1,187 +1,21 @@
 let baseSkuName = "";
 // 灯种类、灯颜色、灯开关类型的关键字
 const lightTypes = ["5050", "2835", "霓虹灯", "cob"];
-const lightColors = ["红", "橙", "黄", "绿", "粉", "蓝", "紫", "暖白", "rgb"];
+const lightColors = ["红", "橙", "黄", "绿", "粉", "蓝", "紫", "白","暖白", "rgb"];
 const switchTypes = [
   "三键",
   "按键",
   "电池盒",
-  "触摸",
+  "触控",
   "501",
-  "24键红外",
+  "24键遥控",
   "24键蓝牙",
   "44键红外",
   "44键蓝牙",
   "20键红外",
   "20键蓝牙",
 ];
-let tableData = [
-  {
-    name: "led 霓虹灯带三键控制5V工作电压+配件包，用于节日庆祝、高档装修、酒店办公楼装修等。",
-    stockNumber: "WB2412183941313",
-    shippingNumber: "速腾快递，STL200004712223",
-  },
-  {
-    name: "led 霓虹灯+24 键红外遥控器+配件包，5V工作安全电压 USB 即可供电，用于高端装修、圣诞装修等",
-    stockNumber: "WB2412134025455",
-    shippingNumber: "速腾快递，STL200004635951",
-  },
-  {
-    name: "5050RGB幻彩三键式控制灯带，适用节日庆祝、电竞、电视、KTV装修等场合",
-    stockNumber: "WB241214260042",
-    shippingNumber: "速腾快递，STL200004635957",
-  },
-  {
-    name: "led rgb霓虹灯带，USB 供电，1-5m,24键红外遥控，高亮度，适合酒吧、客厅、派对、饭店装修，适合圣诞节、情人节等节日庆祝",
-    stockNumber: "WB2412192051264",
-    shippingNumber: "加运美，JYM180005868886",
-  },
-  {
-    name: "led 霓虹灯+24 键红外遥控器+配件包，5V工作安全电压 USB 即可供电，用于高端装修、圣诞装修等",
-    stockNumber: "WB2412181854971",
-    shippingNumber: "德邦快递陆运件，DPK202471433174",
-  },
-  {
-    name: "led 霓虹灯带三键控制5V工作电压+配件包，用于节日庆祝、高档装修、酒店办公楼装修等。",
-    stockNumber: "WB2412173862097",
-    shippingNumber: "速腾快递，STL200004696173",
-  },
-  {
-    name: "led 霓虹灯+24 键红外遥控器+配件包，5V工作安全电压 USB 即可供电，用于高端装修、圣诞装修等",
-    stockNumber: "WB2412171714225",
-    shippingNumber: "德邦快递陆运件，DPK202470923575",
-  },
-  {
-    name: "led 霓虹灯+24 键红外遥控器+配件包，5V工作安全电压 USB 即可供电，用于高端装修、圣诞装修等",
-    stockNumber: "WB2412174255392",
-    shippingNumber: "速腾快递，STL200004696178",
-  },
-  {
-    name: "1-5 米 亮白色 led 霓虹灯+开关，USB 供电，可任意弯曲，高亮度高像素密度，适合餐厅、商柜、广告、镜子等装修，适合圣诞节、情人节等节日庆祝",
-    stockNumber: "WB241218190174",
-    shippingNumber: "速腾快递，STL200004679062",
-  },
-  {
-    name: "led 霓虹灯带三键控制5V工作电压+配件包，用于节日庆祝、高档装修、酒店办公楼装修等。",
-    stockNumber: "WB2412161242869",
-    shippingNumber: "加运美，JYM180005835150",
-  },
-  {
-    name: "led 霓虹灯带三键控制5V工作电压+配件包，用于节日庆祝、高档装修、酒店办公楼装修等。",
-    stockNumber: "WB2412151047620",
-    shippingNumber: "速腾快递，STL200004679062",
-  },
-  {
-    name: "led 霓虹灯+24 键红外遥控器+配件包，5V工作安全电压 USB 即可供电，用于高端装修、圣诞装修等",
-    stockNumber: "WB2412161374375",
-    shippingNumber: "速腾快递，STL200004679062",
-  },
-  {
-    name: "led 霓虹灯带三键控制5V工作电压+配件包，用于节日庆祝、高档装修、酒店办公楼装修等。",
-    stockNumber: "WB2412193006486",
-    shippingNumber: "德邦快递陆运件，DPK202471433174",
-  },
-  {
-    name: "led 霓虹灯+24 键红外遥控器+配件包，5V工作安全电压 USB 即可供电，用于高端装修、圣诞装修等",
-    stockNumber: "WB2412151542120",
-    shippingNumber: "加运美，JYM180005815051",
-  },
-  {
-    name: "led 霓虹灯+24 键红外遥控器+配件包，5V工作安全电压 USB 即可供电，用于高端装修、圣诞装修等",
-    stockNumber: "WB2412153170476",
-    shippingNumber: "速腾快递，STL200004659692",
-  },
-  {
-    name: "粉红色霓虹灯，多种长度，弹性良好可灵活弯曲制作各种图案，5V 低压工作三键开关，适合饭店、酒店、商街、卧室营造氛围、情人节。",
-    stockNumber: "WB241216340368",
-    shippingNumber: "德邦快递陆运件，DPK202469765880",
-  },
-  {
-    name: "暖白色霓虹灯+5V USB低压工作+三键开关控制，可自然弯曲完美贴合墙角等边缘地带,适合商街楼梯、高端酒店、卧室氛围装修、圣诞装修等",
-    stockNumber: "WB241216080338",
-    shippingNumber: "德邦快递陆运件，DPK202469765880",
-  },
-  {
-    name: "亮红色霓虹灯三键式开关5V工作电压，USB 供电，可自定义裁剪使用可灵活弯曲，适合酒吧、饭店、酒店、商街、卧室营造氛围、情人节装饰品等。",
-    stockNumber: "WB241216040278",
-    shippingNumber: "德邦快递陆运件，DPK202469765880",
-  },
-  {
-    name: "led 霓虹灯带三键控制5V工作电压+配件包，用于节日庆祝、高档装修、酒店办公楼装修等。",
-    stockNumber: "WB2412133478523",
-    shippingNumber: "速腾快递，STL200004635947",
-  },
-  {
-    name: "led 霓虹灯带三键控制5V工作电压+配件包，用于节日庆祝、高档装修、酒店办公楼装修等。",
-    stockNumber: "WB2412133895236",
-    shippingNumber: "速腾快递，STL200004608893",
-  },
-  {
-    name: "led 霓虹灯+24 键红外遥控器+配件包，5V工作安全电压 USB 即可供电，用于高端装修、圣诞装修等",
-    stockNumber: "WB241214040050",
-    shippingNumber: "速腾快递，STL200004608893",
-  },
-  {
-    name: "高级 cob 灯带，开关控制，每米 320 灯珠高像素，无需电池，5V 低安全电压即可工作，可用于卧室、楼梯、浴室照明，适合圣诞、新年装修。",
-    stockNumber: "WB241213010212",
-    shippingNumber: "速腾快递，STL200004594949",
-  },
-  {
-    name: "5050RGB幻彩三键式控制灯带，适用节日庆祝、电竞、电视、KTV装修等场合",
-    stockNumber: "WB2412122038436",
-    shippingNumber: "速腾快递，STL200004594949",
-  },
-  {
-    name: "led 霓虹灯带三键控制5V工作电压+配件包，用于节日庆祝、高档装修、酒店办公楼装修等。",
-    stockNumber: "WB2412053435001",
-    shippingNumber: "速腾快递，STL200004478028",
-  },
-  {
-    name: "幻彩多色 led 灯带蓝牙 APP 控制、USB 供电仅 5V安全电压，适合派对、节日、高档装修、商业楼等",
-    stockNumber: "WB2412053713642",
-    shippingNumber: "速腾快递，STL200004478028",
-  },
-  {
-    name: "cob led 霓虹灯+24 键红外遥控器+配件包，5V工作安全电压 USB 即可供电，用于高端装修、圣诞装修等",
-    stockNumber: "WB241205640212",
-    shippingNumber: "德邦快递陆运件，DPK202464289995",
-  },
-  {
-    name: "智能多色 led 5050灯带+24键红外遥控、5V 工作电压，节日、高档家居、电竞、家庭游戏装饰",
-    stockNumber: "WB2412053603112",
-    shippingNumber: "德邦快递陆运件，DPK202464289995",
-  },
-  {
-    name: "5050RGB幻彩三键式控制灯带，适用节日庆祝、电竞、电视、KTV装修等场合",
-    stockNumber: "WB2412053722757",
-    shippingNumber: "德邦快递陆运件，DPK202464290068",
-  },
-  {
-    name: "led 霓虹灯带三键控制5V工作电压+配件包，用于节日庆祝、高档装修、酒店办公楼装修等。",
-    stockNumber: "WB2412211192827",
-    shippingNumber: "速腾快递，STL200004751512",
-  },
-  {
-    name: "led 霓虹灯带三键控制5V工作电压+配件包，用于节日庆祝、高档装修、酒店办公楼装修等。",
-    stockNumber: "WB2412202391761",
-    shippingNumber: null,
-  },
-  {
-    name: "led 霓虹灯+24 键红外遥控器+配件包，5V工作安全电压 USB 即可供电，用于高端装修、圣诞装修等",
-    stockNumber: "WB2412134025455",
-    shippingNumber: null,
-  },
-  {
-    name: "5050RGB幻彩三键式控制灯带，适用节日庆祝、电竞、电视、KTV装修等场合",
-    stockNumber: "WB241214260042",
-    shippingNumber: null,
-  },
-  {
-    name: "led 霓虹灯+24 键红外遥控器+配件包，5V工作安全电压 USB 即可供电，用于高端装修、圣诞装修等",
-    stockNumber: "WB2412142291521",
-    shippingNumber: "速腾快递，STL200004635962",
-  },
-];
+let tableData =[]
 // 注入悬浮侧边栏
 function injectSidebar() {
   // 防止重复注入
@@ -342,7 +176,7 @@ function extractSKCData(table) {
         pendingVal = null; // 清除挂起值
       }
     }
-    // 处理 SKU 数据行（非“合计”行）
+    // 处理 SKU 数据行（非"合计"行）
     else if (row[2] && row[2] !== "合计") {
       const key = row[2];
       const val = pendingVal !== null ? pendingVal : row[5] || 0;
@@ -396,6 +230,7 @@ async function parseXlsxFile(file) {
   const reader = new FileReader();
   // 提取所有的 table 关键信息
   let tablesData = [];
+  console.log(2)
   reader.onload = function (e) {
     const data = new Uint8Array(e.target.result);
     const workbook = XLSX.read(data, { type: "array" });
@@ -439,16 +274,16 @@ function formatRowData(rowCells, columnCount) {
 }
 
 function updateBoxCount(data) {
-  // 创建一个 Map 来存储每个“物流单号”的箱数总和
+  // 创建一个 Map 来存储每个"物流单号"的箱数总和
   const boxCountMap = new Map();
 
-  // 遍历数据，统计每个“物流单号”的总“箱数”
+  // 遍历数据，统计每个"物流单号"的总"箱数"
   for (let i = 1; i < data.length; i++) {
     const row = data[i];
     const trackingNumber = row[0]; // 物流单号
     const boxCount = row[6]; // 箱数
 
-    // 如果“箱数”为空或非数字，则跳过此行
+    // 如果"箱数"为空或非数字，则跳过此行
     if (boxCount === "" || isNaN(boxCount)) {
       continue;
     }
@@ -458,7 +293,7 @@ function updateBoxCount(data) {
       boxCountMap.set(trackingNumber, 0);
     }
 
-    // 累加“箱数”
+    // 累加"箱数"
     boxCountMap.set(trackingNumber, boxCountMap.get(trackingNumber) + boxCount);
   }
 
@@ -470,11 +305,11 @@ function updateBoxCount(data) {
     // 获取当前物流单号的总箱数
     const totalBoxCount = boxCountMap.get(trackingNumber);
 
-    // 只更新第一次出现的“物流单号”行，设置“箱数”列为总箱数
+    // 只更新第一次出现的"物流单号"行，设置"箱数"列为总箱数
     if (i === data.findIndex(row => row[0] === trackingNumber)) {
-      row[6] = totalBoxCount; // 更新“箱数”列
+      row[6] = totalBoxCount; // 更新"箱数"列
     } else {
-      // 清空已统计的“箱数”列
+      // 清空已统计的"箱数"列
       row[6] = "";
     }
   }
@@ -511,7 +346,7 @@ function generateXlsFile(data) {
           productType[2],
           length,
           val,
-          "", // “箱数”列初始化为空
+          "", // "箱数"列初始化为空
         ]);
       });
 
@@ -580,7 +415,7 @@ function generateXlsFile(data) {
     }
   }
 
-  // 合并“箱数”列，和“物流单号”列逻辑保持一致
+  // 合并"箱数"列，和"物流单号"列逻辑保持一致
   let startRow1 = 1;
   let lastShippingNumber1 = "";
   rows.forEach((row, index) => {
@@ -636,7 +471,12 @@ function generateXlsFile(data) {
   worksheet["!cols"] = [{ wpx: 514 }, {}, {}, {}, {}, {}, {}];
 
   XLSX.utils.book_append_sheet(workbook, worksheet, "发单信息");
-  XLSX.writeFile(workbook, "发单信息.xlsx");
+  const date=new Date()
+  const year=date.getFullYear()
+  const month=date.getMonth()+1
+  // 一般都是做次日的单
+  const day=date.getDate()+1
+  XLSX.writeFile(workbook, `秦天代发_${year}_${month}_${day}.xlsx`);
 }
 
 // 提取页面中的 table 数据并打印
@@ -654,7 +494,6 @@ function extractTableData() {
 
   let allSizes = []; // 存储所有的米数
   let refinedProductNames = ""; // 存储精炼后的商品名称
-
   tables.forEach((table, tableIndex) => {
     // 获取表头列数据
     const headers = table.querySelectorAll("th");
@@ -662,8 +501,7 @@ function extractTableData() {
     headers.forEach((header) => {
       headerNames.push(header.innerText.trim());
     });
-
-
+    console.log(1)
     // 获取每一行的数据
     const rows = table.querySelectorAll("tr");
     rows.forEach((row, rowIndex) => {
@@ -712,51 +550,10 @@ function copyShipping() {
   copyToClipboard(baseSkuName + "米面单");
 }
 
+
 // 精炼商品名称的函数
-function refineProductName(productName, lightTypes, lightColors, switchTypes) {
-  let lightType = "";
-  let lightColor = "";
-  let switchType = "";
-
-  // 查找灯种类
-  lightTypes.forEach((type) => {
-    if (productName.includes(type)) {
-      lightType = type;
-    }
-  });
-
-  // 查找灯颜色（在识别开关类型之前）
-  lightColors.forEach((color) => {
-    // 使用正则匹配独立词或复合词
-    const regex = new RegExp(`(?:^|\\W)(${color})(?:\\W|$)`, "i"); // 匹配独立或复合词
-    if (
-      regex.test(productName) &&
-      !isColorInSwitchType(color, productName, switchTypes)
-    ) {
-      lightColor = color;
-    }
-  });
-
-  // 如果没有找到灯颜色，默认使用 rgb
-  if (!lightColor) {
-    lightColor = "rgb";
-    if(lightType==='cob'){
-      lightColor="暖白"
-    }
-  }
-
-  // 查找灯开关类型
-  switchTypes.forEach((switchKeyword) => {
-    if (productName.includes(switchKeyword)) {
-      switchType = switchKeyword;
-    }
-  });
-
-  if(!switchType){
-    if(lightType==='cob'){
-      switchType="按键"
-    }
-  }
+function refineProductName(productName, inputLightTypes, inputLightColors, inputSwitchTypes) {
+ const [lightType, lightColor, switchType]=  getProductType(productName, inputLightTypes, inputLightColors, inputSwitchTypes)
 
   // 返回精炼后的商品名称
   if (lightType && lightColor && switchType) {
@@ -781,13 +578,16 @@ function getProductType(productName, lightTypes, lightColors, switchTypes) {
   lightTypes.forEach((type) => {
     if (productName.includes(type)) {
       lightType = type;
+    }else{
+      // 查找不到的情况默认霓虹灯
+      lightType="霓虹灯"
     }
   });
 
   // 查找灯颜色（在识别开关类型之前）
   lightColors.forEach((color) => {
-    // 使用正则匹配独立词或复合词
-    const regex = new RegExp(`(?:^|\\W)(${color})(?:\\W|$)`, "i"); // 匹配独立或复合词
+    // 修改正则表达式以匹配更灵活的颜色组合
+    const regex = new RegExp(color, "i"); // 简化正则，直接匹配颜色字符
     if (
       regex.test(productName) &&
       !isColorInSwitchType(color, productName, switchTypes)
@@ -810,6 +610,16 @@ function getProductType(productName, lightTypes, lightColors, switchTypes) {
       switchType = switchKeyword;
     }
   });
+
+  // 个人商品命名问题，暖白-三键-霓虹灯时转成无极开关
+  if(lightColor==='暖白'&&lightType==="霓虹灯"&&switchType==='三键'){
+    switchType='无极'
+  }
+   // 个人商品命名问题，24 键遥控霓虹灯转 24键红外
+  if(lightColor==='rgb'&&lightType==='霓虹灯'&&switchType==='24键遥控'){
+    switchType='24键红外'
+  }
+
   if(!switchType){
     if(lightType==='cob'){
       switchType="按键"
@@ -922,24 +732,25 @@ async function checkUrlAndHandleSidebar() {
       tableData = [...tableData, ...(await extractTableDataWithFields())];
       tableData = removeDuplicateEntriesByName(tableData);
       times++;
-    }, 5000);
+      console.warn(tableData)
+    }, 1000);
   } else {
     closeSidebar();
   }
 }
-// 提取表格中包含“备货单号”和“名称”字段的数据
+// 提取表格中包含"备货单号"和"名称"字段的数据
 function extractTableDataWithFields() {
   return new Promise((resolve) => {
     setTimeout(() => {
       const tables = document.querySelectorAll("table"); // 获取页面中所有表格
       const extractedData = []; // 初始化存储结果的数组
-
+      let lastShippingNumber
       tables.forEach((table) => {
         const rows = table.querySelectorAll("tr"); // 获取表格行
         rows.forEach((row) => {
           const columns = row.querySelectorAll("td"); // 获取行中的单元格
           if (columns.length > 0) {
-            // 提取“商品信息”列的内容
+            // 提取"商品信息"列的内容
             const productInfoCell = Array.from(columns).find((cell) =>
               cell.innerText.includes("备货单号")
             );
@@ -957,18 +768,22 @@ function extractTableDataWithFields() {
               const stockNumber = extractValue(productInfoText, "备货单号");
               const name = extractValue(productInfoText, "名称");
 
-              // 查找同一行中的“物流单号”单元格
+              // 查找同一行中的"物流单号"单元格
               const shippingInfoCell = Array.from(columns).find((cell) =>
                 cell.innerText.includes("物流单号")
               );
               let shippingNumber = null;
 
               if (shippingInfoCell) {
-                // 提取“物流单号”文本
+                // 提取"物流单号"文本
                 const shippingSpan = shippingInfoCell.querySelector("a span");
                 if (shippingSpan) {
                   shippingNumber = shippingSpan.innerText.trim();
+                  lastShippingNumber=shippingNumber
                 }
+              }else{
+                // 若不存在 shippingInfoCell 单元格，说明此行数据与上一行数据为合并表单，物流取用上行数据的物流
+                shippingNumber=lastShippingNumber
               }
 
               // 如果找到有效值，存入数组
